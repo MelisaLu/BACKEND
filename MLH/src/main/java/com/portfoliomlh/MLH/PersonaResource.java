@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/persona")
 public class PersonaResource {
+
     private final PersonaServi personaServi;
 
     public PersonaResource(PersonaServi personaServi) {
@@ -19,13 +20,13 @@ public class PersonaResource {
     }
     @GetMapping("/all")
     public ResponseEntity<List<Persona>> getAllPersonas(){
-        List<Persona> personas = PersonaServi.findAllPersonas();
+        List<Persona> personas = personaServi.findAllPersonas();
         return new ResponseEntity<>(personas, HttpStatus.OK);
     }
 
     @GetMapping("/find/{id}")
     public ResponseEntity<Persona> getPersonaById(@PathVariable("id") Long id){
-        Persona persona = PersonaServi.findPersonaById(id);
+        Persona persona = personaServi.findPersonaById(id);
         return new ResponseEntity<>(persona, HttpStatus.OK);
     }
 

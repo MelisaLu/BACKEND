@@ -22,13 +22,13 @@ public class PersonaServi {
         /*persona.setPersonaCod(UUID.randomUUID().toString());*/
         return (personaRepo.save(persona));
     }
-    public static List<Persona> findAllPersonas(){
+    public  List<Persona> findAllPersonas(){
         return personaRepo.findAll();
     }
     public Persona updatePersona(Persona persona){
         return personaRepo.save(persona);
     }
-    public static Persona findPersonaById(Long id){
+    public  Persona findPersonaById(Long id){
         return personaRepo.findPersonaById(id).orElseThrow(()->new UserNotFoundException("Persona no encontrada id" + id + "."));
     }
 
