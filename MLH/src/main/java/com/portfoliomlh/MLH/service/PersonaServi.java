@@ -6,9 +6,11 @@ import com.portfoliomlh.MLH.repository.PersonaRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 
+@Transactional
 @Service
 public class PersonaServi {
     private final PersonaRepo personaRepo;
@@ -31,6 +33,7 @@ public class PersonaServi {
     public  Persona findPersonaById(Long id){
         return personaRepo.findPersonaById(id).orElseThrow(()->new UserNotFoundException("Persona no encontrada id" + id + "."));
     }
+
 
     public void deletePersona(Long id){
         personaRepo.deletePersonaById(id);
