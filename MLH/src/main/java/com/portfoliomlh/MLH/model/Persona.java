@@ -1,7 +1,5 @@
 package com.portfoliomlh.MLH.model;
 
-import com.sun.org.apache.xerces.internal.impl.xs.util.StringListImpl;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -14,15 +12,18 @@ public class Persona implements Serializable {
 
     private String nombre;
     private String apellido;
+
+    private String titulo;
     private String imageUrl;
     private String acercademi;
 
     public Persona(){}
 
-    public Persona(Long id, String nombre, String apellido, String imageUrl, String acercademi) {
+    public Persona(Long id, String nombre, String apellido, String titulo, String imageUrl, String acercademi) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.titulo = titulo;
         this.imageUrl = imageUrl;
         this.acercademi = acercademi;
     }
@@ -51,6 +52,15 @@ public class Persona implements Serializable {
         this.apellido = apellido;
     }
 
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
     public String getImageUrl() {
         return imageUrl;
     }
@@ -68,16 +78,17 @@ public class Persona implements Serializable {
     }
 
     @Override
+
     public String toString() {
         return "Persona{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
+                ", titulo='" + titulo + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", acercademi='" + acercademi + '\'' +
                 '}';
     }
-
 }
 
 
